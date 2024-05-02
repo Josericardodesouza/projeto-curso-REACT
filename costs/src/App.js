@@ -1,14 +1,15 @@
 
-
-
-
-
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Home from './components/pages/home'
 import Company from './components/pages/Company'
 import Contact from './components/pages/Contact'
 import NewProject from './components/pages/NewProject';
+import Container from './components/Layout/container';
+import NavBar from './components/Layout/NavBar'
+import Footer from './components/Layout/Footer'
+
+
 
 
 function App() {
@@ -16,17 +17,12 @@ function App() {
 
     
       <Router>
+        <NavBar />
 
-        <div>
-          <ul>
-            <Link to = "/">Home</Link>
-            <Link to = "/contact">Contato</Link>
-            <Link to = "/company">Empresa</Link>
-            <Link to = "/newproject">NewProject</Link>
-          </ul>
-        </div>
+    
 
         <Switch>
+          <Container customClass = "min-height">
           <Route exact path = "/">
             <Home />
           </Route>
@@ -42,8 +38,9 @@ function App() {
           <Route path = "/newproject">
              <NewProject />
           </Route>
+          </Container>
         </Switch>
-    <p>Footer</p>
+   <Footer />
     </Router>
   );
 }
